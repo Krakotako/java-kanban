@@ -1,6 +1,4 @@
-package task;
-
-import java.util.Objects;
+package model;
 
 public class Task {
 
@@ -62,26 +60,21 @@ public class Task {
             return false;
         } else {
             Task otherTask = (Task) obj;
-            return (id == otherTask.id) && Objects.equals(name, otherTask.name) && Objects.equals(description, otherTask.description) && (status == otherTask.status);
+            return (id == otherTask.id);
         }
     }
 
     @Override
     public int hashCode() {
-        int hash = 17;
-        hash += Objects.hash(id);
-        hash *= 31;
-        if (name != null) {
-            hash += name.hashCode();
-        }
-        hash *= 31;
-        if (description != null) {
-            hash += description.hashCode();
-        }
-        hash *= 31;
-        if (status != null) {
-            hash += status.hashCode();
-        }
-        return hash;
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        String result = "Task{" + "id='" + id + '\''
+                                + ", name='" + name + '\''
+                                + ", description='" + description + '\''
+                                + ", status='" + status + '\'' + "}";
+        return result;
     }
 }
