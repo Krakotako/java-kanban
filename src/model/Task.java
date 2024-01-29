@@ -1,13 +1,15 @@
 package model;
 
+import java.util.Objects;
+
 public class Task {
 
-    protected int id;
+    protected long id;
     protected String name;
     protected String description;
     protected TaskStatus status;
 
-    public Task(int id, String name, String description, TaskStatus status) {
+    public Task(long id, String name, String description, TaskStatus status) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -20,11 +22,18 @@ public class Task {
         this.status = status;
     }
 
-    public int getId() {
+    public Task(Task task) {
+        this.id = task.id;
+        this.name = task.name;
+        this.description = task.description;
+        this.status = task.status;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -66,7 +75,7 @@ public class Task {
 
     @Override
     public int hashCode() {
-        return id;
+        return Objects.hash(id);
     }
 
     @Override
