@@ -51,7 +51,7 @@ public class InMemoryTaskManagerTest {
     public void shouldNotAddSubtaskWithNotExistingEpicId() {
         Subtask incorrectSubtask = new Subtask(4, "a", "b", TaskStatus.NEW, 1000);
         Subtask addedIncorrectSubtask = manager.addNewSubtask(incorrectSubtask);
-        assertFalse(manager.getAllSubtasksList().contains(addedIncorrectSubtask));
+        assertFalse(manager.getSubtasksList().contains(addedIncorrectSubtask));
     }
 
     @Test

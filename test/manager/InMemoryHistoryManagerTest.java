@@ -2,7 +2,7 @@ package manager;
 
 import model.*;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
+import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -19,7 +19,7 @@ public class InMemoryHistoryManagerTest {
         historyManager.add(task);
         historyManager.add(epic);
         historyManager.add(subtask);
-        final ArrayList<Task> history = historyManager.getHistory();
+        final List<Task> history = historyManager.getHistory();
         assertNotNull(history, "метод getHistory() не возвращает историю");
         assertNotEquals(0, history.size(), "История пуста");
         assertEquals(3, history.size(), "Задачи не добавляются в историю");
@@ -36,7 +36,7 @@ public class InMemoryHistoryManagerTest {
         Task secondTaskVersion  = new Task("second", "secondVersion", TaskStatus.DONE);
         taskManager.updateTask(secondTaskVersion);
         taskManager.getTaskById(firstTaskVersion.getId());
-        ArrayList<Task> history = taskManager.getHistory();
+        List<Task> history = taskManager.getHistory();
         assertEquals(firstTaskVersion, history.get(0), "Старая версия задачи не сохраняется в истории");
     }
 }

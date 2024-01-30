@@ -1,17 +1,17 @@
 package manager;
 
 import model.*;
-import java.util.ArrayList;
+import java.util.List;
 
 public interface TaskManager {
 
-    ArrayList<Task> getTasksList();
+    List<Task> getTasksList();
 
-    ArrayList<Epic> getEpicsList();
+    List<Epic> getEpicsList();
 
-    ArrayList<Subtask> getAllSubtasksList();
+    List<Subtask> getSubtasksList();
 
-    ArrayList<Subtask> getSubtasksListByEpicId(long id);
+    List<Subtask> getSubtasksListByEpicId(long id);
 
     Task addNewTask(Task task);
 
@@ -43,5 +43,5 @@ public interface TaskManager {
 
     void deleteAllSubtasks();
 
-    ArrayList<Task> getHistory();
+    List<Task> getHistory();
 }

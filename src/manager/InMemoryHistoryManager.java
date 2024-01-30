@@ -1,11 +1,13 @@
 package manager;
 
 import model.*;
+import java.util.List;
 import java.util.ArrayList;
+
 
 public class InMemoryHistoryManager implements HistoryManager {
 
-    private final ArrayList<Task> history;
+    private final List<Task> history;
 
     public InMemoryHistoryManager() {
         history = new ArrayList<>();
@@ -22,17 +24,13 @@ public class InMemoryHistoryManager implements HistoryManager {
             taskToAdd = new Task(task);
         }
         history.add(taskToAdd);
-        updateHistory();
-    }
-
-    @Override
-    public ArrayList<Task> getHistory() {
-        return history;
-    }
-
-    private void updateHistory() {
         if (history.size() >= 11) {
             history.remove(0);
         }
+    }
+
+    @Override
+    public List<Task> getHistory() {
+        return history;
     }
 }

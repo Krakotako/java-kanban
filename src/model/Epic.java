@@ -1,10 +1,11 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Epic extends Task {
 
-    private final ArrayList<Long> subtasksIds;
+    private final List<Long> subtasksIds;
 
     public Epic(long id, String name, String description, TaskStatus status) {
         super(id, name, description, status);
@@ -19,10 +20,10 @@ public class Epic extends Task {
     public Epic(Task task) {
         super(task);
         Epic epic = (Epic) task;
-        this.subtasksIds = epic.subtasksIds;
+        this.subtasksIds = List.copyOf(epic.subtasksIds);
     }
 
-    public ArrayList<Long> getSubtasksIds() {
+    public List<Long> getSubtasksIds() {
         return subtasksIds;
     }
 
@@ -32,7 +33,7 @@ public class Epic extends Task {
                                 + ", name='" + name + '\''
                                 + ", description='" + description + '\''
                                 + ", status='" + status + '\''
-                                + ", subtasksId='" + subtasksIds + '\'' + "}";
+                                + ", subtasksIds='" + subtasksIds + '\'' + "}";
         return result;
     }
 }

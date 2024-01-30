@@ -2,7 +2,7 @@ import model.*;
 import manager.Managers;
 import manager.TaskManager;
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.List;
 
 public class Demonstration {
 
@@ -58,14 +58,14 @@ public class Demonstration {
                 }
                 break;
             case "3":
-                for (Subtask subtask : manager.getAllSubtasksList()) {
+                for (Subtask subtask : manager.getSubtasksList()) {
                     System.out.println(subtask);
                 }
                 break;
             case "4":
                 remindEpics();
                 System.out.println("Введите id эпика (в метод передаётся объект)");
-                ArrayList<Subtask> subtasks = manager.getSubtasksListByEpicId(scanner.nextLong());
+                List<Subtask> subtasks = manager.getSubtasksListByEpicId(scanner.nextLong());
                 for (Subtask subtask : subtasks) {
                     System.out.println(subtask);
                 }
@@ -195,6 +195,6 @@ public class Demonstration {
 
     public void remindSubtasks() {
         System.out.println("Напомню список подзадач:");
-        System.out.println(manager.getAllSubtasksList());
+        System.out.println(manager.getSubtasksList());
     }
 }
